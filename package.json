@@ -1,0 +1,29 @@
+{
+  "name": "aweza",
+  "version": "1.0.0",
+  "description": "to be edited",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kelvinfox1/Aweza.git"
+  },
+  "keywords": [
+    "Online",
+    "Aweza",
+    "Job"
+  ],
+  "author": "Kelvin Ngure",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kelvinfox1/Aweza/issues"
+  },
+  "homepage": "https://github.com/Kelvinfox1/Aweza#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.17"
+  }
+}
