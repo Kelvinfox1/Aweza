@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>DigiGigs | signup page </title>
+</head>
+
+<body>
+    <div id="app" class="flex flex-col min-h-screen font-roboto dark:bg-gray-900">
+        <header class="bg-white shadow-lg lg:fixed lg:w-full lg:top-0 lg:left-0 lg:z-40">
+            <div class="antialiased bg-gray-100 dark-mode:bg-gray-900">
+                <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+                    <div x-data="{ open: true }"
+                        class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                        <div class="flex flex-row items-center justify-between p-4">
+                            <a href="./index.html"
+                                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">DigiGigs
+                            </a>
+                            <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+                                @click="open = !open">
+                                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                                    <path x-show="!open" fill-rule="evenodd"
+                                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                                        clip-rule="evenodd"></path>
+                                    <path x-show="open" fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <nav :class="{'flex': open, 'hidden': !open}"
+                            class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+                            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                href="#">Find Talent</a>
+                            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                href="#">Join As A profession</a>
+
+                            <div @click.away="open = false" class="relative" x-data="{ open: true }">
+                                <button @click="open = !open"
+                                    class="flex flex-row text-gray-900 bg-gray-200 items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                    <span>Explore</span>
+                                    <svg fill="currentColor" viewBox="0 0 20 20"
+                                        :class="{'rotate-180': open, 'rotate-0': !open}"
+                                        class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                                <div x-show="open" x-transition:enter="transition ease-out duration-100"
+                                    x-transition:enter-start="transform opacity-0 scale-95"
+                                    x-transition:enter-end="transform opacity-100 scale-100"
+                                    x-transition:leave="transition ease-in duration-75"
+                                    x-transition:leave-start="transform opacity-100 scale-100"
+                                    x-transition:leave-end="transform opacity-0 scale-95"
+                                    class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+                                    <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <a class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                                href="#">
+                                                <div class="bg-teal-500 text-white rounded-lg p-3">
+                                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                        class="md:h-6 md:w-6 h-4 w-4">
+                                                        <path
+                                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <p class="font-semibold">Services</p>
+                                                    <p class="text-sm">Get popular Services in DigiGigs</p>
+                                                </div>
+                                            </a>
+
+                                            <a class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                                href="#">
+                                                <div class="bg-teal-500 text-white rounded-lg p-3">
+                                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                        class="md:h-6 md:w-6 h-4 w-4">
+                                                        <path
+                                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <p class="font-semibold">Why DigiGigs</p>
+                                                    <p class="text-sm">Get to know The Tech behind</p>
+                                                </div>
+                                            </a>
+
+                                            <a class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                                href="#">
+                                                <div class="bg-teal-500 text-white rounded-lg p-3">
+                                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                        class="md:h-6 md:w-6 h-4 w-4">
+                                                        <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                                                        <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <p class="font-semibold">Analytics</p>
+                                                    <p class="text-sm">Take a look at your statistics</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-2 px-3"><button
+                                    class="px-5 py-1 rounded-xl text-sm font-medium text-indigo-600 bg-white outline-none focus:outline-none border-4 border-transparent hover:text-indigo-800 focus:border-purple-200 active:border-transparent active:text-grey-900 transition-all">Download
+                                    Application<i class="fas fa-download pl-2"></i></button>
+                            </div>
+
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <main class="flex-1 lg:mt-20">
+            <div
+                class="flex max-w-lg mx-auto my-16 overflow-hidden bg-white rounded-lg lg:space-x-8 dark:bg-gray-900 lg:max-w-5xl">
+                <div class="items-center hidden lg:flex lg:w-1/2"><img src="../static/home_screen_svg.svg"
+                        alt="queue-animate.svg">
+                </div>
+                <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
+                    <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Welcome Back
+                    </h2>
+                    <p class="mt-2 text-xl text-center text-gray-600 dark:text-gray-200">
+                        Making Services available effortless for
+                        <span class="text-blue-700">everyone everywhere. </span>
+                    </p>
+                    <div class="flex items-center mt-4 space-x-4">
+                        <button
+                            class="_google_auth flex items-center justify-center w-full px-4 py-2 mt-2 space-x-3 text-sm text-center text-gray-600 transition-colors duration-200 transform border rounded-lg dark:text-gray-300 dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                                <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+                                    <path fill="#4285F4"
+                                        d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z" />
+                                    <path fill="#34A853"
+                                        d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z" />
+                                    <path fill="#FBBC05"
+                                        d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z" />
+                                    <path fill="#EA4335"
+                                        d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z" />
+                                </g>
+                            </svg> <span class="text-sm text-gray-800 dark:text-gray-200">Login with Google</span>
+                        </button>
+                        <button
+                            class="_facebook_auth flex items-center justify-center w-full px-4 py-2 mt-2 space-x-3 text-sm text-center text-gray-600 transition-colors duration-200 transform border rounded-lg dark:text-gray-300 dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 h-6 fill-current">
+                                <path
+                                    d="m512 256c0 141.386719-114.613281 256-256 256s-256-114.613281-256-256 114.613281-256 256-256 256 114.613281 256 256zm0 0"
+                                    fill="#4a7aff" />
+                                <path
+                                    d="m267.234375 511.738281c136.171875-5.878906 244.765625-118.121093 244.765625-255.738281 0-.996094-.027344-1.988281-.039062-2.984375l-177.699219-177.703125-190 198.59375 105.566406 105.566406-48.675781 66.183594zm0 0"
+                                    fill="#0053bf" />
+                                <path
+                                    d="m334.261719 75.3125v57.96875s-66.554688-9.660156-66.554688 33.277344v42.9375h60.113281l-7.511718 65.480468h-52.601563v170.679688h-66.554687v-170.679688l-56.894532-1.074218v-64.40625h55.820313v-49.378906s-3.683594-73.457032 68.703125-86.949219c30.058594-5.605469 65.480469 2.144531 65.480469 2.144531zm0 0"
+                                    fill="#fff" />
+                                <path
+                                    d="m334.261719 133.28125v-57.96875s-35.421875-7.75-65.480469-2.144531c-4.695312.875-9.0625 2.007812-13.136719 3.347656v369.140625h12.0625v-170.679688h52.597657l7.515624-65.480468h-60.113281s0 0 0-42.9375 66.554688-33.277344 66.554688-33.277344zm0 0"
+                                    fill="#dce1eb" />
+                            </svg>
+
+                            <span class="text-sm text-gray-800 dark:text-gray-200">Login with Facebook</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between mt-4"><span
+                            class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
+                        <p class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or
+                            use
+                            your email</p> <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
+                    </div>
+                    <form method="POST" action="https://tailwindcomponents.com/register"><input type="hidden"
+                            name="_token" value="UCZ25EJMsbZVgA3jlHt4rowx5jZyA8iUkjOY6tHl">
+
+                        <div class="mt-4"><label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">E-Mail
+                                Address</label> <input type="email" name="email" value="" required="required"
+                                autocomplete="email"
+                                class="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-teal-500 dark:focus:border-teal-500 focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-40">
+                        </div>
+                        <div class="mt-4"><label
+                                class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label> <input
+                                type="password" name="password" required="required"
+                                class="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-teal-500 dark:focus:border-teal-500 focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-40">
+                        </div>
+
+                        <div class="mt-8">
+                            <button type="submit"
+                                class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform rounded-md bg-blue-500 hover:bg-teal-300 focus:outline-none focus:bg-teal-300">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                    <div class="flex items-center justify-between mt-4"><span
+                            class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span> <a href="/signup.html"
+                            class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">CREATE AN ACCOUNT
+                        </a> <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span></div>
+                </div>
+            </div>
+        </main>
+        <footer class="relative bg-blueGray-200 pt-8 pb-6">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap text-left lg:text-left">
+                    <div class="w-full lg:w-6/12 px-4">
+                        <h4 class="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
+                        <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+                            Find us on any of these platforms, we respond 1-2 business days.
+                        </h5>
+                        <div class="mt-6 lg:mb-0 mb-6">
+                            <button
+                                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-twitter"></i></button><button
+                                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-facebook-square"></i></button><button
+                                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-dribbble"></i></button><button
+                                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                                type="button">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="flex flex-wrap items-top mb-6">
+                            <div class="w-full lg:w-4/12 px-4 ml-auto">
+                                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful
+                                    Links</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">About
+                                            Us</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">Github</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">Free
+                                            Products</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other
+                                    Resources</span>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">MIT
+                                            License</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">Terms &amp;
+                                            Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                                            href="">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-6 border-blueGray-300">
+                <div class="flex flex-wrap items-center md:justify-between justify-center">
+                    <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                        <div class="text-sm text-blueGray-500 font-semibold py-1">
+                            Copyright © <span id="get-current-year">2021</span><a href=""
+                                class="text-blueGray-500 hover:text-gray-800" target="_blank"> DigiGigs by
+                                <a href="" class="text-blueGray-500 hover:text-blueGray-800">Kelvin</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</body>
+
+
+</html>
